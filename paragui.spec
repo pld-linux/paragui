@@ -3,16 +3,16 @@ Summary(pl):	ParaGUI - kompletne ¶rodowisko okienkowe dla SDL
 Name:		paragui
 Version:	1.0.2
 Release:	1
+License:	LGPL
+Group:		X11/Libraries
 Source0:	ftp://ftp.bms-austria.com/pub/paragui/release/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am.patch
 URL:		http://www.paragui.org/
-License:	LGPL
-Group:		X11/Libraries
 BuildRequires:	SDL_image-devel >= 1.2.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	freetype-devel
 BuildRequires:	libtool
-BuildRequires:	automake
-BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,6 +48,7 @@ aclocal
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
