@@ -1,14 +1,13 @@
 Summary:	ParaGUI - A complete GUI/Windowing system for SDL
 Summary(pl):	ParaGUI - kompletne ¶rodowisko okienkowe dla SDL
 Name:		paragui
-Version:	1.0.2
-Release:	4
+Version:	1.0.4
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.bms-austria.com/pub/paragui/release/%{name}-%{version}.tar.gz
-# Source0-md5:	57ca321ef8222d7f8ce55ad620adf63c
-Patch0:		%{name}-am.patch
-Patch1:		%{name}-64bit-workaround.patch
+Source0:	http://savannah.nongnu.org/download/paragui/%{name}-%{version}.tar.gz
+# Source0-md5:	fc0cfcb31e28c2f7ff7e9900d3c5f651
+Patch0:		%{name}-64bit-workaround.patch
 URL:		http://www.paragui.org/
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	autoconf
@@ -16,8 +15,8 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	freetype-devel
 BuildRequires:	libtool
+BuildRequires:	physfs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 This library is a complete GUI/Windowing system for SDL.
@@ -52,9 +51,8 @@ Statyczna wersja biblioteki paragui.
 
 %prep
 %setup -q
-%patch0 -p1
 %ifarch alpha
-%patch1 -p1
+%patch0 -p1
 %endif
 
 %build
@@ -63,7 +61,13 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+cd src/physfs
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+cd ../..
+%configure 
 %{__make}
 
 %install
