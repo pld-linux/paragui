@@ -17,7 +17,6 @@ BuildRequires:	freetype-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 This library is a complete GUI/Windowing system for SDL.
