@@ -6,6 +6,7 @@ Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.bms-austria.com/pub/paragui/release/%{name}-%{version}.tar.gz
+# Source0-md5:	57ca321ef8222d7f8ce55ad620adf63c
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-64bit-workaround.patch
 URL:		http://www.paragui.org/
