@@ -10,6 +10,9 @@ License:	LGPL
 Group:		X11/Libraries
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	freetype-devel
+BuildRequires:	libtool
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
