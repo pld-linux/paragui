@@ -1,0 +1,12 @@
+diff -uNr paragui-1.0.2/src/widgets/Makefile.am paragui-1.0.2.new/src/widgets/Makefile.am
+--- paragui-1.0.2/src/widgets/Makefile.am	Mon Apr 15 15:31:31 2002
++++ paragui-1.0.2.new/src/widgets/Makefile.am	Sat Jul 27 10:40:48 2002
+@@ -28,8 +28,6 @@
+ pgwidgetlistex.cpp \
+ pgwindow.cpp \
+ pgmenubar.cpp
+-#pgbuttongroup.cpp \
+-#pgnotebook.cpp \
+ 
+ EXTRA_DIST =
+ 
