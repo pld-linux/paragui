@@ -1,12 +1,12 @@
 Summary:	ParaGUI - A complete GUI/Windowing system for SDL
 Summary(pl):	ParaGUI - kompletne ¶rodowisko okienkowe dla SDL
 Name:		paragui
-Version:	1.0.4
+Version:	1.1.6
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://savannah.nongnu.org/download/paragui/%{name}-%{version}.tar.gz
-# Source0-md5:	fc0cfcb31e28c2f7ff7e9900d3c5f651
+# Source0-md5:	6bf00503ff7c8a114b69f080728c48b1
 Patch0:		%{name}-64bit-workaround.patch
 URL:		http://www.paragui.org/
 BuildRequires:	SDL_image-devel >= 1.2.0
