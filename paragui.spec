@@ -2,15 +2,17 @@ Summary:	ParaGUI - A complete GUI/Windowing system for SDL
 Summary(pl):	ParaGUI - kompletne ¶rodowisko okienkowe dla SDL
 Name:		paragui
 Version:	1.0.2
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.bms-austria.com/pub/paragui/release/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am.patch
+Patch1:		%{name}-64bit-workaround.patch
 URL:		http://www.paragui.org/
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	expat-devel
 BuildRequires:	freetype-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,12 +35,27 @@ Requires:       %{name} = %{version}
 Header files for ParaGUI library - a complete GUI/Windowing system for
 SDL.
 
-%description -l pl
+%description devel -l pl
 Pliki nag³ówkowe dla ParaGUI.
+
+%package static
+Summary:	Static paragui library
+Summary(pl):	Statyczna biblioteka paragui
+Group:		X11/Development/Libraries
+Requires:	%{name}-devel = %{version}
+
+%description static
+Static version of paragui library.
+
+%description static -l pl
+Statyczna wersja biblioteki paragui.
 
 %prep
 %setup -q
 %patch0 -p1
+%ifarch alpha
+%patch1 -p1
+%endif
 
 %build
 rm -f missing
@@ -72,7 +89,12 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*-config
-%{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
 %{_aclocaldir}/*
 %{_pkgconfigdir}/*
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
