@@ -19,7 +19,7 @@ BuildRequires:	expat-devel
 BuildRequires:	freetype-devel >= 2.1.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
-BuildRequires:	libsigc++-devel >= 1.2.5
+BuildRequires:	libsigc++12-devel >= 1.2.5
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool >= 2:1.4d
 BuildRequires:	physfs-devel
@@ -41,7 +41,7 @@ Requires:	expat-devel
 Requires:	freetype-devel >= 2.1.0
 Requires:	libjpeg-devel
 Requires:	libpng-devel
-Requires:	libsigc++-devel >= 1.2.5
+Requires:	libsigc++12-devel >= 1.2.5
 Requires:	libtiff-devel
 Requires:	physfs-devel
 
