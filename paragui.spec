@@ -28,7 +28,7 @@ Kompletne ¶rodowisko okienkowe dla SDL.
 Summary:	Includes and more to develop SDL GUI applications
 Summary(pl):	Pliki nag³ówkowe dla ParaGUI
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for ParaGUI library - a complete GUI/Windowing system for
@@ -41,7 +41,7 @@ Pliki nag³ówkowe dla ParaGUI.
 Summary:	Static paragui library
 Summary(pl):	Statyczna biblioteka paragui
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of paragui library.
@@ -87,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README-ParaGUI.txt AUTHORS TODO README
-%{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_datadir}/paragui
 
 %files devel
