@@ -2,7 +2,7 @@ Summary:	ParaGUI - A complete GUI/Windowing system for SDL
 Summary(pl):	ParaGUI - kompletne ¶rodowisko okienkowe dla SDL
 Name:		paragui
 Version:	1.1.6
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://savannah.nongnu.org/download/paragui/%{name}-%{version}.tar.gz
@@ -68,7 +68,7 @@ Statyczna wersja biblioteki paragui.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%ifarch alpha
+%ifarch alpha amd64
 %patch2 -p1
 %endif
 
@@ -76,12 +76,14 @@ Statyczna wersja biblioteki paragui.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 cd src/physfs
 # only configured, not built (system physfs is used)
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 cd ../..
 %configure 
