@@ -23,6 +23,7 @@ BuildRequires:	libsigc++12-devel >= 1.2.5
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool >= 2:1.4d
 BuildRequires:	physfs-devel
+BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,7 +69,7 @@ Statyczna wersja biblioteki paragui.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%ifarch alpha amd64
+%ifarch alpha %{x8664}
 %patch2 -p1
 %endif
 
