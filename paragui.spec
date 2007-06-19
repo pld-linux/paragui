@@ -10,6 +10,8 @@ Source0:	http://savannah.nongnu.org/download/paragui/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am18.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-64bit-workaround.patch
+Patch3:		%{name}-pkg_sigc.patch
+Patch4:		%{name}-no_cairotest.patch
 URL:		http://www.paragui.org/
 BuildRequires:	SDL-devel >= 1.2.6
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -72,6 +74,8 @@ Statyczna wersja biblioteki paragui.
 %ifarch alpha %{x8664}
 %patch2 -p1
 %endif
+%patch3 -p0
+%patch4 -p0
 
 %build
 %{__libtoolize}
