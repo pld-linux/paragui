@@ -91,7 +91,7 @@ cd src/physfs
 %{__autoheader}
 %{__automake}
 cd ../..
-%configure 
+%configure
 %{__make}
 
 %install
@@ -111,18 +111,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README-ParaGUI.txt AUTHORS TODO README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libparagui-*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libparagui-*.so.8
 %{_datadir}/paragui
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_aclocaldir}/*
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_bindir}/paragui-config
+%attr(755,root,root) %{_libdir}/libparagui.so
+%{_libdir}/libparagui.la
+%{_includedir}/paragui
+%{_aclocaldir}/paragui.m4
+%{_pkgconfigdir}/paragui.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libparagui.a
