@@ -1,0 +1,11 @@
+--- paragui-1.1.8/configure.in~	2010-08-06 01:23:25.000000000 +0300
++++ paragui-1.1.8/configure.in	2010-08-06 01:23:27.385447329 +0300
+@@ -401,7 +401,7 @@
+ 													    
+ dnl Check for other files
+ AC_LANG_CPLUSPLUS
+-AC_CHECK_HEADERS(hash_map ext/hash_map)
++AC_CHECK_HEADERS(ext/hash_map)
+ 
+ dnl Check for --enable-rtti flag
+ 
