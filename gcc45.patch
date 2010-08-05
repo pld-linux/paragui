@@ -9,3 +9,13 @@
  
  dnl Check for --enable-rtti flag
  
+--- paragui-1.1.8/src/core/pgfilearchive.cpp~	2004-03-13 15:45:44.000000000 +0200
++++ paragui-1.1.8/src/core/pgfilearchive.cpp	2010-08-06 01:32:34.474890908 +0300
+@@ -35,6 +35,7 @@
+ #include "SDL_loadso.h"
+ #include "physfsrwops.h"
+ #include <iostream>
++#include <cstring>
+ #include "paragui.h"
+ 
+ Uint32 PG_FileArchive::my_instance_count = 0;
