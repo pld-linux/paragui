@@ -12,7 +12,7 @@ Patch1:		%{name}-link.patch
 Patch2:		%{name}-64bit-workaround.patch
 Patch3:		%{name}-pkg_sigc.patch
 Patch4:		%{name}-no_cairotest.patch
-URL:		http://www.paragui.org/
+URL:		http://savannah.nongnu.org/projects/paragui/
 BuildRequires:	SDL-devel >= 1.2.6
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	autoconf
@@ -91,6 +91,7 @@ cd src/physfs
 %{__autoheader}
 %{__automake}
 cd ../..
+CPPFLAGS="%{rpmcppflags} -Wno-deprecated"
 %configure
 %{__make}
 
