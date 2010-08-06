@@ -1,0 +1,32 @@
+--- paragui-1.1.8/src/widgets/pgmultilineedit.cpp~	2010-08-06 10:38:18.000000000 +0300
++++ paragui-1.1.8/src/widgets/pgmultilineedit.cpp	2010-08-06 10:38:20.371087056 +0300
+@@ -45,8 +45,8 @@
+ }
+ 
+ void PG_MultiLineEdit::DrawText(const PG_Rect& dst) {
+-	int _x = 3;
+-	int _y = 3; 
++	Sint16 _x = 3;
++	Sint16 _y = 3; 
+ 
+ 	// should we draw the cursor ? 
+ 	if(IsCursorVisible()) { 
+@@ -63,7 +63,7 @@
+ 	int maxLines = my_height/GetFontSize() + 1;
+ 	int endpos, start, end;
+ 
+-	int x1 = 0;
++	Sint16 x1 = 0;
+ 	Uint16 w = 0;
+ 	int offset = 0;
+ 
+@@ -99,7 +99,8 @@
+ 			PG_Color inv_color(255 - color.r, 255 - color.g, 255 - color.b);			
+ 			SetFontColor(inv_color);
+ 			PG_FontEngine::GetTextSize(middlepart.c_str(), GetFont(), &w);
+-			SDL_Rect rect = {x + x1, y + _y, w, GetFontHeight()};
++			// XXX: where the fck is x and y defined
++			SDL_Rect rect = {(Sint16 )(x + x1), (Sint16)(y + _y), w, (Sint16 )GetFontHeight()};
+ 			SDL_Surface* screen = PG_Application::GetScreen();
+ 			SDL_FillRect(screen, &rect, SDL_MapRGB(screen->format, color.r, color.g, color.b));
+ 			PG_Widget::DrawText(x1, _y, middlepart.c_str());

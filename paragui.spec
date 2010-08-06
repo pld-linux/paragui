@@ -13,6 +13,7 @@ Patch2:		%{name}-64bit-workaround.patch
 Patch3:		%{name}-pkg_sigc.patch
 Patch4:		%{name}-no_cairotest.patch
 Patch5:		gcc45.patch
+Patch6:		SDL_Sint16.patch
 URL:		http://savannah.nongnu.org/projects/paragui/
 BuildRequires:	SDL-devel >= 1.2.6
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -78,6 +79,7 @@ Statyczna wersja biblioteki paragui.
 %patch3 -p0
 %patch4 -p0
 %patch5 -p1
+%patch6 -p1
 
 %build
 %{__libtoolize}
