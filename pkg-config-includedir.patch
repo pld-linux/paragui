@@ -1,0 +1,15 @@
+--- paragui-1.1.8/paragui.pc.in~	2002-04-15 16:22:10.000000000 +0300
++++ paragui-1.1.8/paragui.pc.in	2010-08-09 12:38:22.788614061 +0300
+@@ -1,10 +1,10 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+ libdir=@libdir@
+-includedir=@includedir@
++includedir=@includedir@/paragui
+ 
+ Name: ParaGUI
+ Description: cross-platform widget library
+ Version: @VERSION@
+ Libs: @PARAGUI_LIBS@
+-Cflags: @PARAGUI_CFLAGS@
++Cflags: -I${includedir} @PARAGUI_CFLAGS@
