@@ -1,0 +1,22 @@
+--- paragui-1.1.8/src/widgets/pgbutton.cpp.orig	2004-10-17 18:47:54.000000000 +0200
++++ paragui-1.1.8/src/widgets/pgbutton.cpp	2020-11-25 21:31:00.553128036 +0100
+@@ -99,7 +99,7 @@
+ 
+ 	const char  *iconup = 0, *icondown = 0, *iconover = 0;
+ 
+-	switch (GetID()) {
++	switch (static_cast<unsigned>(GetID())) {
+ 		case OK:
+ 			iconup = "ok_icon";
+ 			break;
+--- paragui-1.1.8/test/keyboard/keyboard.cpp.orig	2004-03-13 13:59:42.000000000 +0100
++++ paragui-1.1.8/test/keyboard/keyboard.cpp	2020-11-25 21:49:48.581194376 +0100
+@@ -30,7 +30,7 @@
+ 		if (PG_Rect::OverlapRect(*pWidget,*this))
+ 			return false;
+ 	}
+-	switch (pWidget->GetID())
++	switch (static_cast<unsigned>(pWidget->GetID()))
+ 	{
+ 		case BTN_ID_CONFIRM:
+ 			nReturnValue = PG_Button::YES;

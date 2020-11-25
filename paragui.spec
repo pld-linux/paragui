@@ -17,6 +17,7 @@ Patch6:		SDL_Sint16.patch
 Patch7:		pkg-config-includedir.patch
 Patch8:		%{name}-physfs.patch
 Patch9:		%{name}-c++.patch
+Patch10:	%{name}-narrowing.patch
 URL:		http://savannah.nongnu.org/projects/paragui/
 BuildRequires:	SDL-devel >= 1.2.6
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -91,6 +92,7 @@ Statyczna wersja biblioteki paragui.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 %{__libtoolize}
