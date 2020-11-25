@@ -1,0 +1,23 @@
+Rename array example, so it won't be included instead of <array> STL header
+--- paragui-1.1.8/test/Makefile.am.orig	2020-11-25 19:39:21.436952328 +0100
++++ paragui-1.1.8/test/Makefile.am	2020-11-25 19:52:10.049455064 +0100
+@@ -11,7 +11,7 @@
+ 	sigc \
+ 	widgetlistbug \
+ 	eventbug \
+-	array \
++	array_ \
+ 	writefile \
+ 	stress1 \
+ 	stress2 \
+@@ -46,8 +46,8 @@
+ eventbug_SOURCES = event_bug.cpp
+ eventbug_LDADD = $(LFLAGS)
+ 
+-array_SOURCES = array.cpp
+-array_LDADD = $(LFLAGS)
++array__SOURCES = array.cpp
++array__LDADD = $(LFLAGS)
+ 
+ writefile_SOURCES = writefile.cpp
+ writefile_LDADD = $(LFLAGS)

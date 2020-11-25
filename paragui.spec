@@ -2,8 +2,8 @@ Summary:	ParaGUI - A complete GUI/Windowing system for SDL
 Summary(pl.UTF-8):	ParaGUI - kompletne środowisko okienkowe dla SDL
 Name:		paragui
 Version:	1.1.8
-Release:	5
-License:	LGPL
+Release:	6
+License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://savannah.nongnu.org/download/paragui/%{name}-%{version}.tar.gz
 # Source0-md5:	6741b8f704b47b2c6b62fef29759c89c
@@ -15,21 +15,27 @@ Patch4:		%{name}-no_cairotest.patch
 Patch5:		gcc45.patch
 Patch6:		SDL_Sint16.patch
 Patch7:		pkg-config-includedir.patch
+Patch8:		%{name}-physfs.patch
+Patch9:		%{name}-c++.patch
 URL:		http://savannah.nongnu.org/projects/paragui/
 BuildRequires:	SDL-devel >= 1.2.6
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	expat-devel
+BuildRequires:	expat-devel >= 1.95
 BuildRequires:	freetype-devel >= 2.1.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libsigc++12-devel >= 1.2.5
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool >= 2:1.4d
-BuildRequires:	physfs-devel
+BuildRequires:	physfs-devel >= 3
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.213
+Requires:	SDL >= 1.2.6
+Requires:	SDL_image >= 1.2.0
+Requires:	freetype >= 2.1.0
+Requires:	libsigc++12 >= 1.2.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,7 +56,7 @@ Requires:	libjpeg-devel
 Requires:	libpng-devel
 Requires:	libsigc++12-devel >= 1.2.5
 Requires:	libtiff-devel
-Requires:	physfs-devel
+Requires:	physfs-devel >= 3
 
 %description devel
 Header files for ParaGUI library - a complete GUI/Windowing system for
@@ -83,6 +89,8 @@ Statyczna wersja biblioteki paragui.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
+%patch9 -p1
 
 %build
 %{__libtoolize}
@@ -109,6 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 	pkgconfigdir=%{_pkgconfigdir} \
 	m4datadir=%{_aclocaldir}
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libparagui.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -117,7 +128,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README-ParaGUI.txt AUTHORS TODO README
+# COPYING is license header, not LGPL text
+%doc AUTHORS COPYING README README-ParaGUI.txt TODO
 %attr(755,root,root) %{_libdir}/libparagui-*.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libparagui-*.so.8
 %{_datadir}/paragui
@@ -126,7 +138,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/paragui-config
 %attr(755,root,root) %{_libdir}/libparagui.so
-%{_libdir}/libparagui.la
 %{_includedir}/paragui
 %{_aclocaldir}/paragui.m4
 %{_pkgconfigdir}/paragui.pc
